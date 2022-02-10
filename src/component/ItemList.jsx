@@ -5,6 +5,10 @@ function onHandleError(e) {
   console.log(e);
   e.target.src = require("../assets/no-image-6663.png");
 }
+function getSaleRate(price, normalPrice) {
+  const rate = Math.round(100 - (price / (normalPrice) * 100))
+  return rate ? rate + '%' : null
+}
 
 export default function ItemList({ items }) {
   return (
@@ -35,9 +39,9 @@ export default function ItemList({ items }) {
               ) : null}
             </div>
             <div>{item.brandName}</div>
-            <div>{item.goodsName}</div>
+            <div className="goods">{item.goodsName}</div>
             {/* 가격(할인 포함) */}
-            <div>{internationalNumberFormat.format(item.price)}</div>
+            <div><span>{internationalNumberFormat.format(item.price)}</span><span className="salerate">{getSaleRate(item.price, item.normalPrice)}</span></div>
             {/* 일반가격 */}
             <div>{internationalNumberFormat.format(item.normalPrice)}</div>
           </div>
