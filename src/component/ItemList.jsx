@@ -1,4 +1,10 @@
+// import noImage from "../assets/no-image.svg";
 const internationalNumberFormat = new Intl.NumberFormat("en-US");
+
+function onHandleError(e) {
+  console.log(e);
+  e.target.src = require("../assets/no-image-6663.png");
+}
 
 export default function ItemList({ items }) {
   return (
@@ -12,13 +18,21 @@ export default function ItemList({ items }) {
             >
               <img
                 src={item.imageUrl}
-                alt="상품이미지"
+                alt="사진없음"
+                onError={(e) => onHandleError(e)}
                 style={{
                   opacity: item.isSoldOut ? 0.4 : null,
                 }}
               />
               {item.isSoldOut ? <div className="soldout">SOLD OUT</div> : null}
-              {item.isExclusive ? <div className="exclusive">단독</div> : null}
+            </div>
+            <div className="tags">
+              {!item.isSoldOut && item.isExclusive ? (
+                <span className="exclusive">단독</span>
+              ) : null}
+              {!item.isSoldOut && item.isSale ? (
+                <span className="sale">할인</span>
+              ) : null}
             </div>
             <div>{item.brandName}</div>
             <div>{item.goodsName}</div>
