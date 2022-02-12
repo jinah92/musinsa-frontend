@@ -5,7 +5,7 @@ export default function useInfiniteScroll(fetchCallback) {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
+      window.innerHeight + document.documentElement.scrollTop + 200 >=
       document.documentElement.offsetHeight
     ) {
       setIsFetching(true);

@@ -37,6 +37,11 @@ $searchColor: #f8f8f8;
       }
     }
   }
+  .items {
+    position: relative;
+    top: 100px;
+    height: 750px;
+  }
   .item {
     width: 45%;
     float: left;
@@ -99,13 +104,17 @@ $searchColor: #f8f8f8;
 body {
   padding-top: 5%;
 }
-
+.no-item {
+  width: 100px;
+  margin: 0 auto;
+}
 .btn__style {
   border-radius: 10px;
   border-width: 1px;
   font-size: 1em;
   cursor: pointer;
   &.clicked {
-    background-color: violet;
+    color: blue;
+    font-weight: bolder
   }
 }
