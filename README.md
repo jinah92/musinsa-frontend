@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 무신사 프론트엔드 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 과제의 구성
 
-## Available Scripts
+### 라이브러리
 
-In the project directory, you can run:
+- react
+- axios
+- node-sass
 
-### `npm start`
+### 디렉토리 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+src
+├── App.tsx
+├── assets
+│   ├── no-image.png
+│   └── not-found.png
+├── component
+│   └── ItemList.tsx
+├── hook
+│   └── useInfiniteScroll.tsx
+├── index.js
+└── scss
+    ├── MaterialIcons-Regular.ttf
+    ├── main.scss
+    └── material-icons.scss
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- index.js : 엔트리 파일
+- App.tsx : 앱 메인 컴포넌트
+- component : 상품 조회결과 아이템 리스트
+- hook : 무한스크롤 이벤트를 감지하는 커스텀
+- assets : icon 파일 (상품없음 이미지 파일, 상품사진이 실행되지 않는 경우 대체 이미지 파일)
+- scss : css, google-material UI 정의
 
-### `npm test`
+### 라이브러리 선정 이유
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- react : 컴포넌트 기반 UI 개발이 용이함
+- axios : IE를 포함한 대부분의 브라우저를 지원함, JSON 데이터를 자동으로 변환해줌
+- node-sass : sass 전처리기 사용
 
-### `npm run build`
+## 2. 구동 방법
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### NPM 패키지 설치
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 개발모드 실행 (3000번 포트)
 
-### `npm run eject`
+```bash
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 빌드
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+yarn build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 개발모드 실행 또는 빌드시 버전 오류 발생시 아래 명령어 실행
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm rebuild node-sass
+```
